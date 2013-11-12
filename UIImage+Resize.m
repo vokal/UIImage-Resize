@@ -9,15 +9,6 @@
 #import "UIImage+RoundedCorner.h"
 #import "UIImage+Alpha.h"
 
-// Private helper methods
-@interface UIImage ()
-- (UIImage *)resizedImage:(CGSize)newSize
-                transform:(CGAffineTransform)transform
-           drawTransposed:(BOOL)transpose
-     interpolationQuality:(CGInterpolationQuality)quality;
-- (CGAffineTransform)transformForOrientation:(CGSize)newSize;
-@end
-
 @implementation UIImage (Resize)
 
 // Returns a copy of this image that is cropped to the given bounds.
@@ -168,6 +159,9 @@
             transform = CGAffineTransformTranslate(transform, 0, newSize.height);
             transform = CGAffineTransformRotate(transform, -M_PI_2);
             break;
+        default:
+            //Do nothing
+            break;
     }
     
     switch (self.imageOrientation) {
@@ -181,6 +175,9 @@
         case UIImageOrientationRightMirrored:  // EXIF = 7
             transform = CGAffineTransformTranslate(transform, newSize.height, 0);
             transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        default:
+            //Do nothing.
             break;
     }
     
