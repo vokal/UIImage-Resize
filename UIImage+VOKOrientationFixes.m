@@ -10,19 +10,20 @@
 
 @implementation UIImage (VOKOrientationFixes)
 
-+ (UIImage *)vok_fixImageOrientation:(UIImage *)image
+- (UIImage *)vok_fixImageOrientation;
 {
     //Based on http://stackoverflow.com/questions/538041/uiimagepickercontroller-camera-preview-is-portrait-in-landscape-app/538064#538064
-    CGImageRef imgRef = image.CGImage;
+    CGImageRef imgRef = self.CGImage;
     
     CGFloat width = CGImageGetWidth(imgRef);
     CGFloat height = CGImageGetHeight(imgRef);
+    
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGRect bounds = CGRectMake(0, 0, width, height);
     CGSize imageSize = CGSizeMake(CGImageGetWidth(imgRef), CGImageGetHeight(imgRef));
     CGFloat boundHeight;
-    UIImageOrientation orient = image.imageOrientation;
+    UIImageOrientation orient = self.imageOrientation;
     switch (orient) {
             
         case UIImageOrientationUp: //EXIF = 1
@@ -78,7 +79,8 @@
             break;
             
         default:
-            [NSException raise:NSInternalInconsistencyException format:@"Invalid image orientation"];
+            NSAssert(NO, @"Invalid image orientation");
+            return self;
             
     }
     

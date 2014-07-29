@@ -11,12 +11,13 @@
 @interface UIImage (VOKOrientationFixes)
 
 /**
- *  This method is used to take an image from the UIImagePickerUtility and rotate it so it will display correctly.
+ *  When getting an image from an UIImagePickerController the image can often
+ *  be rotated weirdly because the camera is locked in landscape mode.  To Fix
+ *  this you can call this method and the image will be rotated to correct for
+ *  this issue.  This works on all orientations of the device.
  *
- *  @param image The image from the imagePickerUtility that needs rotating;
- *
- *  @return A rotated image that will be oriented correctly.
+ *  @return A correctly rotated image
  */
-+ (UIImage *)vok_fixImageOrientation:(UIImage *)image;
+- (UIImage *)vok_fixImageOrientation;
 
 @end
