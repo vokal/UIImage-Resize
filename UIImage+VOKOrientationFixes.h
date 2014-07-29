@@ -17,6 +17,6 @@
  *
  *  @return A rotated image that will be oriented correctly.
  */
-+ (UIImage *)fixImageOrientation:(UIImage *)image;
++ (UIImage *)vok_fixImageOrientation:(UIImage *)image;
 
 @end

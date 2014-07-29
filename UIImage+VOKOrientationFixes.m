@@ -10,14 +10,13 @@
 
 @implementation UIImage (VOKOrientationFixes)
 
-+ (UIImage *)fixImageOrientation:(UIImage *)image
++ (UIImage *)vok_fixImageOrientation:(UIImage *)image
 {
     //Based on http://stackoverflow.com/questions/538041/uiimagepickercontroller-camera-preview-is-portrait-in-landscape-app/538064#538064
     CGImageRef imgRef = image.CGImage;
     
     CGFloat width = CGImageGetWidth(imgRef);
     CGFloat height = CGImageGetHeight(imgRef);
-    
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGRect bounds = CGRectMake(0, 0, width, height);
