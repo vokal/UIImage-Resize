@@ -12,7 +12,7 @@
 
 /**
  *  When getting an image from an UIImagePickerController the image can often
- *  be rotated weirdly because the camera is locked in landscape mode.  To Fix
+ *  be rotated weirdly because the camera is locked in landscape mode.  To fix
  *  this you can call this method and the image will be rotated to correct for
  *  this issue.  This works on all orientations of the device.
  *
