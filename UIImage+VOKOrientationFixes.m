@@ -49,7 +49,7 @@ static CGRect CGRectBySwappingWidthAndHeight(CGRect rect)
             break;
             
         case UIImageOrientationLeftMirrored: //EXIF = 5
-            CGRectBySwappingWidthAndHeight(bounds);
+            bounds = CGRectBySwappingWidthAndHeight(bounds);
             transform = CGAffineTransformMakeTranslation(height, width);
             transform = CGAffineTransformScale(transform, -1.0, 1.0);
             transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
