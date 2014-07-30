@@ -14,7 +14,7 @@ static CGRect CGRectBySwappingWidthAndHeight(CGRect rect)
     return rect;
 }
 
-@implementation UIImage (OrientationFixes)
+@implementation UIImage (VOKOrientationFixes)
 
 - (UIImage *)vok_fixImageOrientation;
 {
@@ -56,19 +56,19 @@ static CGRect CGRectBySwappingWidthAndHeight(CGRect rect)
             break;
             
         case UIImageOrientationLeft: //EXIF = 6
-            CGRectBySwappingWidthAndHeight(bounds);
+            bounds = CGRectBySwappingWidthAndHeight(bounds);
             transform = CGAffineTransformMakeTranslation(0.0, width);
             transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
             break;
             
         case UIImageOrientationRightMirrored: //EXIF = 7
-            CGRectBySwappingWidthAndHeight(bounds);
+            bounds = CGRectBySwappingWidthAndHeight(bounds);
             transform = CGAffineTransformMakeScale(-1.0, 1.0);
             transform = CGAffineTransformRotate(transform, M_PI / 2.0);
             break;
             
         case UIImageOrientationRight: //EXIF = 8
-            CGRectBySwappingWidthAndHeight(bounds);
+            bounds = CGRectBySwappingWidthAndHeight(bounds);
             transform = CGAffineTransformMakeTranslation(height, 0.0);
             transform = CGAffineTransformRotate(transform, M_PI / 2.0);
             break;
