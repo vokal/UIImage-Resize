@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "UIImage-Resize"
   s.homepage         = "https://github.com/vokal/UIImage-Resize"
   s.license          = { :file => "LICENSE" }
-  s.author           = { "Vokal" => "hello@vokal.io" }
+  s.author           = "http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/"
   s.source           = { :git => "https://github.com/vokal/UIImage-Resize.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
